@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="testing" status="unofficial">
+    <name><![CDATA[cournal]]></name>
+    <description lang="en"><![CDATA[Ebuilds for Cournal: a collaborative note taking program]]></description>
+    <homepage>https://github.com/flyser/cournal-gentoo</homepage>
+    <owner type="person">
+      <email>flyser42@gmx.de</email>
+      <name><![CDATA[Fabian Henze]]></name>
+    </owner>
+    <source type="git">git://github.com/Flyser/cournal-gentoo.git</source>
+    <source type="git">https://github.com/Flyser/cournal-gentoo.git</source>
+    <feed>https://github.com/Flyser/cournal-gentoo/commits/master.atom</feed>
+  </repo>
+</repositories>
