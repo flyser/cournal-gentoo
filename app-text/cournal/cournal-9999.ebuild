@@ -11,23 +11,24 @@ DESCRIPTION="A collaborative note taking and journal application using a stylus.
 HOMEPAGE="http://cournal-project.org/"
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://github/flyser/${PN}/${P}.tar.xz"
-        KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 else
-        inherit git-2 mercurial
+	inherit git-2 mercurial
 	EGIT_REPO_URI="git://github.com/Flyser/cournal"
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
 	EHG_PROJECT="t3k"
-        KEYWORDS=""
+	KEYWORDS=""
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE=""
 
 RDEPEND="
-    >=app-text/poppler-0.18[cairo,introspection]
-    dev-libs/gobject-introspection
-    >=net-zope/zope-interface-3.6.0
-    >=x11-libs/gtk+-3.2"
+	>=app-text/poppler-0.18[cairo,introspection]
+	dev-libs/gobject-introspection
+	>=net-zope/zope-interface-3.6.0
+	>=x11-libs/gtk+-3.2"
 #DEPEND="${RDEPEND}"
 
 pkg_setup() {
@@ -36,19 +37,18 @@ pkg_setup() {
 }
 
 src_unpack() {
-        if [[ ${PV} != *9999* ]]; then
-                unpack "${A}"
-        else
-                git-2_src_unpack
+	if [[ ${PV} != *9999* ]]; then
+		unpack ${A}
+	else
+		git-2_src_unpack
 		pwd
 		S="$S/../t3k" mercurial_src_unpack
 		cd "$S"
 		ln -s "$S"/../t3k/twisted "$S"/cournal/twisted
-        fi
+	fi
 }
 
 src_install () {
 	dodoc THANKS
 	distutils_src_install
 }
-

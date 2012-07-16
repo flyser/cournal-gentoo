@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+	<email>flyser42@gmx.de</email>
+	<name>Fabian Henze</name>
+</maintainer>
+<longdescription lang="en">
+	Cournal allows multiple users to annotate PDF files in real-time.
+	
+	The goal of this project is a full featured note taking
+	application (like Xournal or Windows Journal), which allows
+	multiple people to collaborate (like Gobby).
+</longdescription>
+<upstream>
+        <maintainer>
+                <email>flyser42@gmx.de</email>
+                <name>Fabian Henze</name>
+        </maintainer>
+        <changelog>https://github.com/flyser/cournal/blob/master/ChangeLog</changelog>
+        <doc lang="en">https://github.com/flyser/cournal/blob/master/README.md</doc>
+        <bugs-to>https://github.com/flyser/cournal/issues</bugs-to>
+</upstream>
+</pkgmetadata>
