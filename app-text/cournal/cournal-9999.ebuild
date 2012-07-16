@@ -15,6 +15,7 @@ if [[ ${PV} != *9999* ]]; then
 else
 	inherit git-2 mercurial
 	EGIT_REPO_URI="git://github.com/Flyser/cournal"
+	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
 	EHG_PROJECT="t3k"
 	KEYWORDS=""
@@ -41,7 +42,6 @@ src_unpack() {
 		unpack ${A}
 	else
 		git-2_src_unpack
-		pwd
 		S="$S/../t3k" mercurial_src_unpack
 		cd "$S"
 		ln -s "$S"/../t3k/twisted "$S"/cournal/twisted
