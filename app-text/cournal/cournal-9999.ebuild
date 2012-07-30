@@ -14,7 +14,7 @@ if [[ ${PV} != *9999* ]]; then
 	KEYWORDS="~amd64 ~x86"
 else
 	inherit git-2 mercurial
-	EGIT_REPO_URI="git://github.com/Flyser/cournal"
+	EGIT_REPO_URI="git://github.com/flyser/cournal"
 	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
 	EHG_PROJECT="t3k"

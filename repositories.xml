@@ -9,8 +9,8 @@
       <email>flyser42@gmx.de</email>
       <name><![CDATA[Fabian Henze]]></name>
     </owner>
-    <source type="git">git://github.com/Flyser/cournal-gentoo.git</source>
-    <source type="git">https://github.com/Flyser/cournal-gentoo.git</source>
-    <feed>https://github.com/Flyser/cournal-gentoo/commits/master.atom</feed>
+    <source type="git">git://github.com/flyser/cournal-gentoo.git</source>
+    <source type="git">https://github.com/flyser/cournal-gentoo.git</source>
+    <feed>https://github.com/flyser/cournal-gentoo/commits/master.atom</feed>
   </repo>
 </repositories>
