@@ -5,7 +5,7 @@ EAPI=4
 
 PYTHON_DEPEND="3:3.1"
 
-inherit distutils eutils
+inherit distutils eutils gnome2-utils fdo-mime
 
 DESCRIPTION="A collaborative note taking and journal application using a stylus."
 HOMEPAGE="http://cournal-project.org/"
@@ -29,8 +29,10 @@ RDEPEND="
 	>=app-text/poppler-0.18[cairo,introspection]
 	dev-libs/gobject-introspection
 	>=net-zope/zope-interface-3.6.0
-	>=x11-libs/gtk+-3.2"
-#DEPEND="${RDEPEND}"
+	>=x11-libs/gtk+-3.2
+	x11-themes/hicolor-icon-theme
+	dev-util/desktop-file-utils"
+DEPEND=""
 
 pkg_setup() {
 	python_set_active_version 3
@@ -48,7 +50,21 @@ src_unpack() {
 	fi
 }
 
+pkg_preinst() {
+	gnome2_icon_savelist
+}
+
 src_install () {
 	dodoc THANKS
 	distutils_src_install
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+	fdo-mime_desktop_database_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
+	fdo-mime_desktop_database_update
 }
