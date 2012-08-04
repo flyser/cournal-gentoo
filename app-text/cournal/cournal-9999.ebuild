@@ -12,9 +12,15 @@ HOMEPAGE="http://cournal-project.org/"
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://github/flyser/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
-else
+elif [[ ${PR} == "r0" ]]; then
 	inherit git-2 mercurial
 	EGIT_REPO_URI="git://github.com/flyser/cournal"
+	# Twisted for python3:
+	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
+	EHG_PROJECT="t3k"
+	KEYWORDS=""
+else
+	REPO_URI="/home/flyser/projekte/cournal"
 	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
 	EHG_PROJECT="t3k"
@@ -42,11 +48,13 @@ pkg_setup() {
 src_unpack() {
 	if [[ ${PV} != *9999* ]]; then
 		unpack ${A}
-	else
+	elif [[ ${PR} == "r0" ]]; then
 		git-2_src_unpack
 		S="$S/../t3k" mercurial_src_unpack
 		cd "$S"
 		ln -s "$S"/../t3k/twisted "$S"/cournal/twisted
+	else
+		cp -r "$REPO_URI" "$S"
 	fi
 }
 
