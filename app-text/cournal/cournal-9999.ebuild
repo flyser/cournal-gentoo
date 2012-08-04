@@ -38,7 +38,9 @@ RDEPEND="
 	>=x11-libs/gtk+-3.2
 	x11-themes/hicolor-icon-theme
 	dev-util/desktop-file-utils"
-DEPEND="sys-devel/gettext"
+DEPEND="
+	sys-devel/gettext
+	dev-util/intltool"
 
 pkg_setup() {
 	python_set_active_version 3
