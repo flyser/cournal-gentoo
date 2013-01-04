@@ -17,12 +17,14 @@ elif [[ ${PR} == "r0" ]]; then
 	EGIT_REPO_URI="git://github.com/flyser/cournal"
 	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
+	EHG_REVISION="tip"
 	EHG_PROJECT="t3k"
 	KEYWORDS=""
 else
 	REPO_URI="/home/flyser/projekte/cournal"
 	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
+	EHG_REVISION="tip"
 	EHG_PROJECT="t3k"
 	KEYWORDS=""
 fi
