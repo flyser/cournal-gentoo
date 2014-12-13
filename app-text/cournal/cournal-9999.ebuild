@@ -36,7 +36,7 @@ IUSE=""
 RDEPEND="
 	>=app-text/poppler-0.18[cairo,introspection]
 	dev-libs/gobject-introspection
-	>=net-zope/zope-interface-3.6.0
+	>=dev-python/zope-interface-3.6.0
 	>=x11-libs/gtk+-3.2
 	x11-themes/hicolor-icon-theme
 	dev-util/desktop-file-utils"
