@@ -1,11 +1,12 @@
-# Copyright 1999-2012 Fabian Henze
+# Copyright 1999-2016 Fabian Henze
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=4
+EAPI=6
 
-PYTHON_DEPEND="3:3.1"
+PYTHON_COMPAT=( python3_{1,2,3,4,5} )
+DOCS=(THANKS)
 
-inherit distutils eutils gnome2-utils fdo-mime
+inherit distutils-r1 eutils gnome2-utils fdo-mime
 
 DESCRIPTION="A collaborative note taking and journal application using a stylus."
 HOMEPAGE="http://cournal-project.org/"
@@ -13,7 +14,7 @@ if [[ ${PV} != *9999* ]]; then
 	SRC_URI="mirror://github/flyser/${PN}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~x86"
 elif [[ ${PR} == "r0" ]]; then
-	inherit git-2 mercurial
+	inherit git-r3 mercurial
 	EGIT_REPO_URI="git://github.com/flyser/cournal"
 	# Twisted for python3:
 	EHG_REPO_URI="https://bitbucket.org/pitrou/t3k"
@@ -44,16 +45,11 @@ DEPEND="
 	sys-devel/gettext
 	dev-util/intltool"
 
-pkg_setup() {
-	python_set_active_version 3
-	python_pkg_setup
-}
-
 src_unpack() {
 	if [[ ${PV} != *9999* ]]; then
 		unpack ${A}
 	elif [[ ${PR} == "r0" ]]; then
-		git-2_src_unpack
+		git-r3_src_unpack
 		S="$S/../t3k" mercurial_src_unpack
 		cd "$S"
 		ln -s "$S"/../t3k/twisted "$S"/cournal/twisted
@@ -64,11 +60,6 @@ src_unpack() {
 
 pkg_preinst() {
 	gnome2_icon_savelist
-}
-
-src_install () {
-	dodoc THANKS
-	distutils_src_install
 }
 
 pkg_postinst() {
