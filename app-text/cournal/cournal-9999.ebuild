@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{1,2,3,4,5} )
+PYTHON_COMPAT=( python3_{1,2,3,4,5,6,7} )
 DOCS=(THANKS)
 
 inherit distutils-r1 eutils gnome2-utils fdo-mime
