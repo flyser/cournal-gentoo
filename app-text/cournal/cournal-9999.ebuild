@@ -1,17 +1,17 @@
 # Copyright 1999-2016 Fabian Henze
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_{1,2,3,4,5,6,7} )
+PYTHON_COMPAT=( python3_{6,7,8,9,10} )
 DOCS=(THANKS)
 
-inherit distutils-r1 eutils gnome2-utils fdo-mime
+inherit distutils-r1 eutils gnome2-utils xdg-utils
 
 DESCRIPTION="A collaborative note taking and journal application using a stylus."
 HOMEPAGE="http://cournal-project.org/"
 if [[ ${PV} != *9999* ]]; then
-	SRC_URI="mirror://github/flyser/${PN}/${P}.tar.xz"
+	SRC_URI="mirror://github/flyser/${PN}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 elif [[ ${PR} == "r0" ]]; then
 	inherit git-r3 mercurial
@@ -64,10 +64,10 @@ pkg_preinst() {
 
 pkg_postinst() {
 	gnome2_icon_cache_update
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
 	gnome2_icon_cache_update
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
 }
