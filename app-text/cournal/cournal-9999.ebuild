@@ -3,10 +3,10 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9,10,11} )
+PYTHON_COMPAT=( python3_{8,9,10,11,12} )
 DOCS=(THANKS)
 
-inherit distutils-r1 eutils gnome2-utils xdg-utils
+inherit distutils-r1 xdg-utils
 
 DESCRIPTION="A collaborative note taking and journal application using a stylus."
 HOMEPAGE="http://cournal-project.org/"
@@ -58,16 +58,12 @@ src_unpack() {
 	fi
 }
 
-pkg_preinst() {
-	gnome2_icon_savelist
-}
-
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
